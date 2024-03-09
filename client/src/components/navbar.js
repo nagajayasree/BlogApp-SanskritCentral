@@ -6,13 +6,11 @@ function Navbar() {
   return (
     <div
       style={{
-        backgroundColor: '#A7A1D6',
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
-        width: '20%',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        gap: 40,
+        marginTop: '60px',
       }}
     >
       <Link to={'/'}>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Feeds() {
   return (
-    <div>
+    <div style={{ alignContent: 'center' }}>
       <h2>Feeds</h2>
     </div>
   );

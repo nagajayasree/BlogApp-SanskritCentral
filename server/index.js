@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const { graphqlHTTP } = require('express-graphql');
 const mongoose = require('mongoose');
 const schema = require('./graphql/schema');
 const resolvers = require('./graphql/resolvers');
 
 const app = express();
+
+app.use(cors());
 
 mongoose.connect(
   'mongodb+srv://jayasree:jayasree@sanskritcentral.h8exang.mongodb.net/sanskritCentral'
