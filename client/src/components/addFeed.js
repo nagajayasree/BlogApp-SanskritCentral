@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_FEED } from '../mutations/AddFeed';
 
-import { TextField, Button } from '@mui/material';
-import { Textarea } from './Textarea';
+import { Button } from 'antd';
+import { Input } from 'antd';
+import { TextEditor } from './TextEditor';
 
 function AddFeed() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [createFeed, { data, loading, error }] = useMutation(CREATE_FEED);
+  const [createFeed, { loading, error }] = useMutation(CREATE_FEED);
 
   if (loading) return 'Submitting...';
   if (error) return `Submission error! ${error.message}`;
@@ -17,8 +18,9 @@ function AddFeed() {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (title === '' || content === '') {
-      return alert('Please fill in all fields');
+      return alert('Please fill in all fields') && e.error;
     }
+    console.log(title, content);
     createFeed({ variables: { title, content } });
     setTitle('');
     setContent('');
@@ -26,28 +28,26 @@ function AddFeed() {
 
   return (
     <div>
-      <div>
-        <h2>Add Feed</h2>
-        <TextField
-          id="outlined-basic"
-          label="Title"
+      <h2>Add Feed</h2>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          gap: '20px',
+        }}
+      >
+        <Input
+          placeholder="Title"
           variant="outlined"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <TextEditor value={content} onChange={setContent} />
+        <Button type="primary" onClick={onSubmit}>
+          Submit
+        </Button>
       </div>
-      <div style={{ display: 'flex', alignItems: 'baseline' }}>
-        <Textarea
-          maxRows={4}
-          aria-label="maximum height"
-          placeholder="Content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
-      <button value="Submit" onClick={onSubmit}>
-        Submit
-      </button>
     </div>
   );
 }
