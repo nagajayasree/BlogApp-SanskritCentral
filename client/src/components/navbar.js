@@ -1,6 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../logo.png';
+
+const navItems = [
+  { name: 'Feeds', link: '/feeds' },
+  { name: 'Videos', link: '/videos' },
+  { name: 'Add a feed', link: '/add-feed' },
+];
 
 function Navbar() {
   return (
@@ -9,28 +15,35 @@ function Navbar() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: 40,
         marginTop: '60px',
+        position: 'fixed',
+        justifyItems: 'center',
+        gap: 40,
       }}
     >
       <Link to={'/'}>
         <img src={logo} alt="" width={'100px'} height={'100px'} />
       </Link>
-      <p>
-        <Link to={'/feeds'} style={{ textDecoration: 'none' }}>
-          Feeds
-        </Link>
-      </p>
-      <p>
-        <Link to={'/videos'} style={{ textDecoration: 'none' }}>
-          Videos
-        </Link>
-      </p>
-      <p>
-        <Link to={'/add-feed'} style={{ textDecoration: 'none' }}>
-          Add a Feed
-        </Link>
-      </p>
+
+      {navItems.map((item) => (
+        <return>
+          <p>
+            <NavLink
+              id={item.name}
+              to={`${item.link}`}
+              style={({ isActive }) => {
+                return {
+                  textDecoration: 'none',
+                  fontWeight: isActive ? 'bold' : '',
+                  fontSize: 18,
+                };
+              }}
+            >
+              {item.name}
+            </NavLink>
+          </p>
+        </return>
+      ))}
     </div>
   );
 }

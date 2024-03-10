@@ -12,8 +12,9 @@ function App() {
       >
         <div
           style={{
-            backgroundColor: '#A7A1D6',
+            display: 'flex',
             width: '20%',
+            justifyContent: 'center',
           }}
         >
           <Navbar />

@@ -4,7 +4,8 @@ import 'react-quill/dist/quill.snow.css';
 export const TextEditor = ({ value, onChange }) => {
   const modules = {
     toolbar: [
-      [{ header: [1, 2, false] }],
+      [{ header: '1' }, { header: '2' }],
+      [{ size: [] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [
         { list: 'ordered' },
@@ -12,9 +13,18 @@ export const TextEditor = ({ value, onChange }) => {
         { indent: '-1' },
         { indent: '+1' },
       ],
+      [
+        { align: '' },
+        { align: 'center' },
+        { align: 'right' },
+        { align: 'justify' },
+      ],
       ['link', 'image'],
       ['clean'],
     ],
+    clipboard: {
+      matchVisual: false,
+    },
   };
 
   const formats = [

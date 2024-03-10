@@ -20,7 +20,6 @@ function AddFeed() {
     if (title === '' || content === '') {
       return alert('Please fill in all fields') && e.error;
     }
-    console.log(title, content);
     createFeed({ variables: { title, content } });
     setTitle('');
     setContent('');
