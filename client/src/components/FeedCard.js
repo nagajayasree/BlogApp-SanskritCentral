@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
+import './FeedCard.css';
 
 const FeedCard = ({ title, content }) => (
   <Card style={{ width: 1200 }} hoverable>
@@ -9,6 +10,7 @@ const FeedCard = ({ title, content }) => (
         flexDirection: 'row',
         gap: '16px',
       }}
+      key={title}
     >
       <div>
         <img
@@ -19,7 +21,7 @@ const FeedCard = ({ title, content }) => (
       </div>
       <div>
         <h3>{title}</h3>
-        <p>{content}</p>
+        <p className="truncate-line-clamp-feeds">{content}</p>
       </div>
     </div>
   </Card>

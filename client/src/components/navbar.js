@@ -26,23 +26,21 @@ function Navbar() {
       </Link>
 
       {navItems.map((item) => (
-        <return>
-          <p>
-            <NavLink
-              id={item.name}
-              to={`${item.link}`}
-              style={({ isActive }) => {
-                return {
-                  textDecoration: 'none',
-                  fontWeight: isActive ? 'bold' : '',
-                  fontSize: 18,
-                };
-              }}
-            >
-              {item.name}
-            </NavLink>
-          </p>
-        </return>
+        <p>
+          <NavLink
+            id={item.name}
+            to={`${item.link}`}
+            style={({ isActive }) => {
+              return {
+                textDecoration: 'none',
+                fontWeight: isActive ? 'bold' : '',
+                fontSize: 18,
+              };
+            }}
+          >
+            {item.name}
+          </NavLink>
+        </p>
       ))}
     </div>
   );
