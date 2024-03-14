@@ -2,6 +2,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  width: 250px;
+  width: 320px;
   overflow: hidden;
+  text-align: justify;
+  text-justify: distribute;
 }
