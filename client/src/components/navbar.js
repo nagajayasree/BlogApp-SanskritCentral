@@ -26,7 +26,7 @@ function Navbar() {
       </Link>
 
       {navItems.map((item) => (
-        <p>
+        <p key={item.name}>
           <NavLink
             id={item.name}
             to={`${item.link}`}

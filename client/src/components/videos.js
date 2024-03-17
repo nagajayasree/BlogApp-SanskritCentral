@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_VIDEOS } from '../queries/getVideos';
 import VideoCard from './VideoCard';
+import { Link } from 'react-router-dom';
 
 function Videos() {
   const { data, loading, error } = useQuery(GET_VIDEOS);
@@ -25,12 +26,14 @@ function Videos() {
       >
         {data.getVideos.map((video) => (
           <return>
-            <VideoCard
-              title={video.title}
-              description={video.description}
-              url={video.videoUrl}
-              thumbnailUrl={video.thumbnailUrl}
-            />
+            <Link to={`/video/${video.id}`} style={{ textDecoration: 'none' }}>
+              <VideoCard
+                title={video.title}
+                description={video.description}
+                url={video.videoUrl}
+                thumbnailUrl={video.thumbnailUrl}
+              />
+            </Link>
           </return>
         ))}
       </div>

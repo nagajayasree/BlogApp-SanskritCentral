@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_FEEDS } from '../queries/getFeeds';
 import FeedCard from './FeedCard';
+import { Link } from 'react-router-dom';
 
 function Feeds() {
   const { loading, error, data } = useQuery(GET_FEEDS);
@@ -22,7 +23,12 @@ function Feeds() {
       >
         {data.getFeeds.map((feed) => (
           <return>
-            <FeedCard title={feed.title} content={feed.content} />
+            <Link
+              to={`/feed/${feed.id}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <FeedCard title={feed.title} content={feed.content} />
+            </Link>
           </return>
         ))}
       </div>
