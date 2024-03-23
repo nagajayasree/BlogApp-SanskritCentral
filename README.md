@@ -1,7 +1,7 @@
 # About
 
-Technologies - React, Node.js, Express.js, MongoDB, GraphQL API, React Router, React Quill.
-Overview - This website displays feeds(blogs) list, videos list and to add a new feed into the database. When clicked on a feed card or video card it navigates to it's respective details page.
+- **Technologies** - React, Node.js, Express.js, MongoDB, GraphQL API, React Router, React Quill.
+- **Overview** - This website displays feeds(blogs) list, videos list and to add a new feed into the database. When clicked on a feed card or video card it navigates to it's respective details page.
 
 # Getting Started with Create React App
 
